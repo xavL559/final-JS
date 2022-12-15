@@ -1,6 +1,9 @@
+
 const cells = document.querySelectorAll(".game-square");
 const statusText = document.querySelector("#statusText");
 const restartBtn = document.querySelector("#restartBtn");
+const scoreBoard = document.getElementById("scoreboard-x");
+const scoreKeeper = document.getElementById("scoreboard-o");
 const winConditions = [
     [0, 1, 2],
     [3, 4, 5],
@@ -62,6 +65,8 @@ function checkWinner(){
     if(roundWon){
         statusText.textContent = `${currentPlayer} wins!`;
         running = false;
+        scoreKeeper.innerHTML = "2";
+
     }
     else if(!options.includes("")){
         statusText.textContent = `Draw!`;
