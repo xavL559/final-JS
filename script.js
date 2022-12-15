@@ -1,4 +1,5 @@
-
+sessionStorage.setItem("playerx", "0");
+sessionStorage.setItem("playero", "0");
 const cells = document.querySelectorAll(".game-square");
 const statusText = document.querySelector("#statusText");
 const restartBtn = document.querySelector("#restartBtn");
@@ -65,7 +66,20 @@ function checkWinner(){
     if(roundWon){
         statusText.textContent = `${currentPlayer} wins!`;
         running = false;
-        scoreKeeper.innerHTML = "2";
+        if (currentPlayer == "X"){ 
+            let currentvalue = sessionStorage.getItem("playerx");
+            currentvalue++;
+            sessionStorage.setItem("playerx", currentvalue);
+            scoreBoard.innerHTML =currentvalue ;
+        } 
+
+         else {
+            let currentvalue = sessionStorage.getItem("playero");
+            currentvalue++;
+            sessionStorage.setItem("playero", currentvalue);
+            scoreKeeper.innerHTML = currentvalue;
+         }
+        
 
     }
     else if(!options.includes("")){
